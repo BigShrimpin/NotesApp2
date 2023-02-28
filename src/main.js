@@ -7,6 +7,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, si
 const auth = getAuth();
 const content = document.querySelector(".container");
 const notesContainer = document.getElementById("app");
+const mainContent = document.getElementById("main-content");
 const addNoteButton = notesContainer.querySelector(".add-note");
 addNoteButton.addEventListener("click", () => {
     addNote();
@@ -81,6 +82,8 @@ function signIn(email, password) {
         addNoteButton.classList.remove("hide");
         loginButton.classList.add("hide");
         logoutButton.classList.remove("hide");
+        notesContainer.classList.remove("hide");
+        mainContent.classList.add("hide");
         showSignin(email);
         getNotes();
     })
@@ -97,6 +100,8 @@ function signUp(email, password) {
         addNoteButton.classList.remove("hide");
         loginButton.classList.add("hide");
         logoutButton.classList.remove("hide");
+        notesContainer.classList.remove("hide");
+        mainContent.classList.add("hide");
         showSignup(email)
         getNotes();
     });
@@ -105,13 +110,17 @@ function signUp(email, password) {
 function showSignin(email) {
     x.innerText = `You've signed in as ${email}.`
     x.className = "show";
-    setTimeout(function(){x.className = x.className.replace("show", "");}, 3000)
+    setTimeout(function(){
+        x.className = x.className.replace("show", "");
+    }, 3000);
 }
 
 function showSignup(email) {
     x.innerText = `You've signed up as ${email}.`
     x.className = "show";
-    setTimeout(function(){x.className = x.className.replace("show", "");}, 3000)
+    setTimeout(function(){
+        x.className = x.className.replace("show", "");
+    }, 3000);
 }
 
 function signingOut() {
@@ -120,6 +129,8 @@ function signingOut() {
             loginButton.classList.remove("hide");
             logoutButton.classList.add("hide");
             addNoteButton.classList.add("hide");
+            notesContainer.classList.add("hide");
+            mainContent.classList.remove("hide");
             derender();
         })
         .catch((error) => {

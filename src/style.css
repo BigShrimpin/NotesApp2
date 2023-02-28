@@ -11,6 +11,9 @@
 body {
   margin: 0;
   background: #009578;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 #app {
@@ -289,6 +292,14 @@ button:hover {
   background-color: #009578;
   height: 80vh;
   font-size: 20px;
+}
+
+#app.hide {
+  display: none;
+}
+
+#main-content.hide {
+  display: none;
 }
 
 @media screen and (max-width: 1000px) {
