@@ -14,6 +14,13 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 #app {
@@ -92,6 +99,7 @@ header {
   font-family: "Montserrat Subrayada", sans-serif;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
   align-items: center;
   padding: 30px;
   background-color: #03755f;
@@ -99,9 +107,6 @@ header {
 }
 
 .logo {
-  font-family: inherit;
-  font-size: 30px;
-  cursor: pointer;
   grid-column: 2;
   text-align: center;
 }
@@ -136,7 +141,7 @@ button:hover {
 }
 
 #signup {
-  background: hsl(0, 50%, 45%);
+  background: hsl(186, 25%, 24%);
 }
 
 #signin {
@@ -291,7 +296,13 @@ button:hover {
   padding: 0 5% 0 5%;
   background-color: #009578;
   height: 100%;
-  font-size: 20px;
+  font-size: 25px;
+}
+
+.br {
+  border-bottom: 20px solid #03755e5e;
+  border-radius: 5px;
+  margin-bottom: 1px;
 }
 
 #app.hide {
@@ -302,7 +313,7 @@ button:hover {
   display: none;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1080px) {
   header {
     grid-template-columns: 1fr 1fr;
   }
@@ -312,6 +323,7 @@ button:hover {
   }
   .logo {
     grid-column: 1;
+    width: 100%;
   }
 }
 
@@ -325,5 +337,6 @@ button:hover {
   }
   .logo {
     grid-column: 1;
+    width: 100%;
   }
 }
